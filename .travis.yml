@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t laeeq87/doc-frontend -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true laeeq87/doc-frontend npm run test
